@@ -1,22 +1,24 @@
 package com.netology.hw2_1_autorizationservice.service;
 
-import com.netology.hw2_1_autorizationservice.User;
+import com.netology.hw2_1_autorizationservice.Person;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserRepository {
     private final int NUM_USERS = 10;
     private final String NAME = "user-";
     private final String PASSWORD = "qwerty_";
-    private List<User> userList;
+    private Map<Person, List<AuthorizationService.Authorities>> usersList;
 
     public UserRepository() {
-        userList = new ArrayList<>();
+        usersList = new HashMap<>();
         for (int i = 0; i < NUM_USERS; i++) {
-            userList.add(new User(NAME + i,
-                    PASSWORD + (int) (Math.random() * NUM_USERS),
-                    getAuthorization()));
+            usersList.put(new Person(NAME + i,
+                    PASSWORD + (int) (Math.random() * NUM_USERS)),
+                    getAuthorization());
         }
     }
 
@@ -33,10 +35,10 @@ public class UserRepository {
     }
 
     public List<AuthorizationService.Authorities> getUserAuthorities(String user, String password) {
-        for (int i = 0; i < userList.size(); i++) {
-            User userObj = userList.get(i);
-            if (userObj.getUser().equals(user) && userObj.getPassword().equals(password))
-                return userObj.getAuthoritiesList();
+        for(Map.Entry person : usersList.entrySet()) {
+            Person p = (Person) person.getKey();
+            if (p.getUser().equals(user) && p.getPassword().equals(password))
+                return (List<AuthorizationService.Authorities>) person.getValue();
         }
         return null;
     }

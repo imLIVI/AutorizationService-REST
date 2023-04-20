@@ -1,8 +1,9 @@
 package com.netology.hw2_1_autorizationservice.controller;
 
+import com.netology.hw2_1_autorizationservice.Person;
 import com.netology.hw2_1_autorizationservice.service.AuthorizationService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,8 +17,7 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<AuthorizationService.Authorities> getAuthorities(@RequestParam("user") String user,
-                                                                 @RequestParam("password") String password) {
-        return service.getAuthorities(user, password);
+    public List<AuthorizationService.Authorities> getAuthorities(@Valid Person person) {
+        return service.getAuthorities(person.getUser(), person.getPassword());
     }
 }
