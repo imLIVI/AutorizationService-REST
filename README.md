@@ -62,3 +62,9 @@ What you write in the configuration, add to a text file (any file format, for ex
 4. As a result get authorization form when write http://localhost/signin:
 
 ![Screenshot_2](https://user-images.githubusercontent.com/63547457/233652995-f7938f8b-e086-4715-9dec-2bf612a35a22.png)
+
+P.S. 
+* To monitor nginx processes: ```tasklist /fi "imagename eq nginx.exe"```
+* To start nginx: ```start nginx```
+* To reload: ```nginx -s reload```
+* To quit: ```nginx -s quit```
