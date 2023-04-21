@@ -1,4 +1,6 @@
 # AutorizationService-REST
+
+## Task #1, #2
 ### Description
 It is necessary to implement a service for user authorization by login and password. The key is the program's response to errors that your service will throw out in 
 different cases.
@@ -21,3 +23,42 @@ _Request:_ ```GET localhost:8080/authorize?user=<ИМЯ_ЮЗЕРА>&password=<П
 **Check 2: **
 
 ![Screenshot_2](https://user-images.githubusercontent.com/63547457/233495349-435e2d56-3066-457f-9ee5-4e5e41813364.png)
+
+## Task #3
+### Description
+Write an NGINX configuration that will return a static site. You can use it to access your authorization service from your last homework assignment.
+
+1. First you need to create an html form for authorization, which NGINX will return to you. You need to put this file in the appropriate folder, from where NGINX will be able to pick it up.
+```html
+<html>
+    <body>
+        <h1>Sign in form</h1>
+    
+        <form action="/authorize" method="get" target="_blank">
+          <label for="user">User name:</label>
+          <input type="text" id="user" name="user"><br><br>
+          <label for="password">Password:</label>
+          <input type="text" id="password" name="password"><br><br>
+          <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
+```
+2. You need to write the configuration for NGINX so that it when called http://localhost/signin he returned this html page to you, and he proxied everything else to your Spring Boot application, which runs on port 8080.
+
+What you write in the configuration, add to a text file (any file format, for example, txt) in your project with the authorization service, upload to your repository and send a link to the repository.
+
+ ### Results
+ 1. Add index.html
+
+![image](https://user-images.githubusercontent.com/63547457/233652316-4cd5007b-533a-47c8-87c8-36420c45ce19.png)
+
+2. Install <a href="https://nginx.org/ru/docs/windows.html">nginx for Windows</a>
+3. In nginx-1.23.4\nginx-1.23.4\conf\nginx.conf writed:
+
+
+![Screenshot_1](https://user-images.githubusercontent.com/63547457/233652904-b5e72102-b10d-42c3-9968-58b57cb7ea9e.png)
+
+4. As a result get authorization form when write http://localhost/signin:
+
+![Screenshot_2](https://user-images.githubusercontent.com/63547457/233652995-f7938f8b-e086-4715-9dec-2bf612a35a22.png)
