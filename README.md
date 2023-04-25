@@ -57,7 +57,7 @@ What you write in the configuration, add to a text file (any file format, for ex
 3. In nginx-1.23.4\nginx-1.23.4\conf\nginx.conf writed:
 
 
-![Screenshot_1](https://user-images.githubusercontent.com/63547457/233652904-b5e72102-b10d-42c3-9968-58b57cb7ea9e.png)
+![image](https://user-images.githubusercontent.com/63547457/234314696-e149e5c0-0587-4f06-9de1-3993be2aa2e0.png)
 
 4. As a result get authorization form when write http://localhost/signin:
 
