@@ -68,3 +68,15 @@ P.S.
 * To start nginx: ```start nginx```
 * To reload: ```nginx -s reload```
 * To quit: ```nginx -s quit```
+
+## Task #4 - "Docker"
+### Description
+Build your first Docker image based on the authorization application that you wrote in the second homework assignment. Take only the server application without html from the last task. To do this, you will first write your Dockerfile, and 
+then, for convenience, write a manifest for docker-compose.
+
+<a href="https://github.com/netology-code/jd-homeworks/blob/master/docker/task1/README.md"> (RUS version of description)</a>
+
+* To build image: ```docker build -t authorization-service .```
+* Torun container: ```docker run -itd --rm -P authorization-service```
+* To watch containers: ```docker ps -a```
+* To watch images: ```docker images```
